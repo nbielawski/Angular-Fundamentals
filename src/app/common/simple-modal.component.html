@@ -1,0 +1,15 @@
+<div class="modal fade" tabindex="-1" id="{{elementId}}" #modalContainer>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismisss="modal">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title">{{title}}</h4>
+                <div class="modal.body" (click)="closeModal()">
+                    <ng-content></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

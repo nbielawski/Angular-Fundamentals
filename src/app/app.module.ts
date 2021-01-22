@@ -7,14 +7,15 @@ import { EventsListComponent, EventThumbnailComponent, EventService, EventDetail
 import { EventsAppComponent } from './events-app.component';
 
 import { NavBarComponent } from './nav/navbar.component'
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
-import { CollapsibleWellComponent } from  './common/collapsible-well.component'
 import { appRoutes } from './routes'
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
+import {TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective} from './common/index'
 
-declare let toastr:Toastr;
+ let toastr:Toastr = window['toastr'];
+ let jQuery:Toastr = window['$'];
+
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ declare let toastr:Toastr;
     SessionListComponent,
     Error404Component,
     CollapsibleWellComponent, 
+    SimpleModalComponent,
+    ModalTriggerDirective,
     DurationPipe
   ],
   imports: [
@@ -39,6 +42,7 @@ declare let toastr:Toastr;
   providers: [
     EventService,
     {provide: TOASTR_TOKEN, useValue: toastr},
+    {provide: JQ_TOKEN, useValue: jQuery},
     EventRouteActivator,
     EventListResolver,
     AuthService,
