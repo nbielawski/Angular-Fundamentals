@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import { EventsListComponent, EventThumbnailComponent, EventService, EventDetailsComponent, EventListResolver, EventRouteActivator, CreateEventComponent, CreateSessionComponent, SessionListComponent, DurationPipe } from './events/index'
+import { EventsListComponent, EventThumbnailComponent, EventService, EventDetailsComponent, EventListResolver, EventRouteActivator, CreateEventComponent, CreateSessionComponent, SessionListComponent, DurationPipe, UpvoteComponent, VoterService, LocationValidator } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
 
@@ -31,7 +31,9 @@ import {TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalCom
     CollapsibleWellComponent, 
     SimpleModalComponent,
     ModalTriggerDirective,
-    DurationPipe
+    DurationPipe, 
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import {TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalCom
     EventRouteActivator,
     EventListResolver,
     AuthService,
+    VoterService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
