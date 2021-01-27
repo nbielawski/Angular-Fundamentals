@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import  {HttpClientModule } from '@angular/common/http'
 
-import { EventsListComponent, EventThumbnailComponent, EventService, EventDetailsComponent, EventListResolver, EventRouteActivator, CreateEventComponent, CreateSessionComponent, SessionListComponent, DurationPipe, UpvoteComponent, VoterService, LocationValidator } from './events/index'
+import { EventsListComponent, EventThumbnailComponent, EventService, EventDetailsComponent, EventListResolver, CreateEventComponent, CreateSessionComponent, SessionListComponent, DurationPipe, UpvoteComponent, VoterService, LocationValidator, EventResolver } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
 
@@ -39,13 +40,14 @@ import {TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalCom
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes), 
+    HttpClientModule
   ],
   providers: [
     EventService,
     {provide: TOASTR_TOKEN, useValue: toastr},
     {provide: JQ_TOKEN, useValue: jQuery},
-    EventRouteActivator,
+    EventResolver,
     EventListResolver,
     AuthService,
     VoterService,

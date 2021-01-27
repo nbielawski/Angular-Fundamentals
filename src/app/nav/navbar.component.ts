@@ -24,6 +24,7 @@ searchSessions(searchTerm){
     (sessions => {
         this.foundSessions = sessions;
     });
+
 }
 
 }
